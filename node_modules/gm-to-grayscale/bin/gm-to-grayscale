@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+var fs = require('fs');
+var gmToGrayscale = require('../');
+
+var inFile = process.argv[2];
+var outFile = inFile + '.gray';
+
+gmToGrayscale(inFile, function (err, result) {
+  if (err) {
+    console.error(err.message);
+    process.exit(1);
+  }
+
+  fs.writeFile(outFile, result.image, function (err) {
+    if (err) {
+      console.error(err.message);
+      process.exit(2);
+    }
+
+    console.log(
+      'Output ' + result.width + 'x' + result.height + ' grayscale image to ' +
+      outFile
+    );
+  });
+});

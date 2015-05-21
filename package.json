@@ -1,0 +1,8 @@
+{
+	"name": "CarReverser",
+	"version": "0.0.1",
+	"dependencies": {
+		"gm": "*",
+		"node-tesseract": "*"
+	}
+}
